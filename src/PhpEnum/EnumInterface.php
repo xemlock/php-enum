@@ -24,7 +24,7 @@ interface EnumInterface
      * @param $value
      * @return bool
      */
-    public function is($value);
+    public function equals($value);
 
     /**
      * Creates enum instance from given value.
@@ -33,7 +33,7 @@ interface EnumInterface
      * @param bool $strict
      * @return PhpEnum_EnumInterface
      */
-    public static function get($value, $strict = false);
+    public static function create($value, $strict = false);
 
     /**
      * Returns the enumeration constants of this enum class.

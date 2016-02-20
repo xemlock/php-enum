@@ -28,19 +28,16 @@ class Enum extends \SplEnum implements EnumInterface
         return array_search($this->getValue(), $this->getConstList(), true);
     }
 
-    public function is($value)
+    public function equals($value)
     {
-        if ($value instanceof EnumInterface) {
+        if ($value instanceof static) {
             $value = $value->getValue();
         }
         return $this->getValue() === $value;
     }
 
-    public static function get($value, $strict = false)
+    public static function create($value, $strict = false)
     {
-        if ($value instanceof EnumInterface) {
-            $value = $value->getValue();
-        }
         return new static($value, $strict);
     }
 
@@ -76,6 +73,6 @@ class Enum extends \SplEnum implements EnumInterface
             );
         }
 
-        return static::get(constant($const));
+        return static::create(constant($const));
     }
 }
