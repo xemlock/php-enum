@@ -5,37 +5,6 @@ namespace PhpEnum;
 interface EnumInterface
 {
     /**
-     * Returns constant value of this enum.
-     *
-     * @return mixed
-     */
-    public function getValue();
-
-    /**
-     * Returns constant name of this enum.
-     *
-     * @return string
-     */
-    public function getName();
-
-    /**
-     * Tests if given value is equal to this enum value.
-     *
-     * @param $value
-     * @return bool
-     */
-    public function equals($value);
-
-    /**
-     * Creates enum instance from given value.
-     *
-     * @param mixed $value
-     * @param bool $strict
-     * @return PhpEnum_EnumInterface
-     */
-    public static function create($value, $strict = false);
-
-    /**
      * Returns the enumeration constants of this enum class.
      *
      * @return array
@@ -46,10 +15,9 @@ interface EnumInterface
      * Tests if the specified value matches an existing constant name.
      *
      * @param mixed $value
-     * @param bool $strict
      * @return bool
      */
-    public static function isValid($value, $strict = false);
+    public static function isValid($value);
 
     /**
      * Tests if the specified constant name is a valid enum.
@@ -58,4 +26,11 @@ interface EnumInterface
      * @return bool
      */
     public static function isValidName($name);
+
+    /**
+     * @param mixed $value
+     * @return mixed
+     * @throws \UnexpectedValueException
+     */
+    public static function assert($value);
 }

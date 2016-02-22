@@ -11,8 +11,7 @@
     ],
     "require": {
         "php": "^5.3.0",
-        "ext-reflection": "*",
-        "xemlock/spl-enum": "dev-master"
+        "ext-reflection": "*"
     },
     "autoload": {
         "psr-4": {
