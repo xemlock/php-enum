@@ -53,15 +53,8 @@ class Enum implements EnumInterface
         $class = get_called_class();
 
         if (!isset(self::$_values[$class])) {
-            $constList = array();
             $refClass = new \ReflectionClass($class);
-
-            while ($refClass) {
-                $constList = array_merge($refClass->getConstants(), $constList);
-                $refClass = $refClass->getParentClass();
-            }
-
-            self::$_values[$class] = $constList;
+            self::$_values[$class] = $refClass->getConstants();
         }
 
         return self::$_values[$class];
